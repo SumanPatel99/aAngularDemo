@@ -1,0 +1,170 @@
+<div class="container">
+  <nav class="navbar navbar-dark bg-dark">
+    <a class="navbar-brand" href="#">Party Details</a>
+  </nav>
+  <div class="formdiv">
+    <form [formGroup]="registerForm" (ngSubmit)="Register(registerForm)">
+
+      <div class="col-xl-8 col-lg-8">
+        <div class="form-group">
+          <div class="form-row">
+            <div class="col-md-6">
+              <input type="text" formControlName="name" class="form-control" placeholder="Enter Name" id="name"
+                [value]="name" [(ngModel)]="userArray.name">
+              <div class="error" *ngIf="registerForm.controls['name'].touched && !registerForm.controls['name'].valid">
+                <span *ngIf="registerForm.controls['name'].hasError('required') ">
+                  name is required
+                </span>
+                <span *ngIf="registerForm.controls['name'].hasError('pattern') ">
+                  Invalid name
+                </span>
+                <span *ngIf="registerForm.controls['name'].hasError('minlength') ">
+                  min length is 2
+                </span>
+                <span *ngIf="registerForm.controls['name'].hasError('maxlength') ">
+                  max length is 20
+                </span>
+              </div>
+            </div><br>
+            <div class="col-md-6">
+              <input type="text" formControlName="address" class="form-control" placeholder="Address" id="address"
+                [value]="address" [(ngModel)]="userArray.address">
+              <div class="error"
+                *ngIf="registerForm.controls['address'].touched && !registerForm.controls['address'].valid">
+                <span *ngIf="registerForm.controls['address'].hasError('required') ">
+                  address is required
+                </span>
+              </div>
+            </div>
+          </div>
+        </div><br>
+        <div class="form-row">
+          <div class="form-group col-md-6">
+            <!-- <label for="inputEmail4">Email</label> -->
+            <input type="email" formControlName="email" placeholder="Email" class="form-control email" id="email" [(ngModel)]="userArray.email"
+              [value]="emailId">
+            <div class="error" *ngIf="registerForm.controls['email'].touched && !registerForm.controls['email'].valid">
+              <span *ngIf="registerForm.controls['email'].hasError('required') ">
+                Email is required
+              </span>
+              <span *ngIf="registerForm.controls['email'].hasError('email') ">
+                Invalid emailId
+              </span>
+              <span *ngIf="registerForm.controls['email'].hasError('minlength') ">
+                min length is 6
+              </span>
+              <span *ngIf="registerForm.controls['email'].hasError('maxlength') ">
+                max length is 20
+              </span>
+            </div>
+          </div>
+        </div><br>
+        <div class="form-group">
+          <div class="form-row">
+            <div class="col-md-6">
+              <label for="inputState">State</label>
+              <select id="inputState" placeholder="State" class="form-select" formControlName="state" id="state"
+                aria-label="Default select example" [(ngModel)]="userArray.state">
+                <option selected>Choose...</option>
+                <option>Maharashtra</option>
+                <option>Hyderabad</option>
+                <option>Delhi</option>
+                <option>Varanasi</option>
+                <option>Pune</option>
+              </select>
+            </div>
+          </div>
+        </div><br>
+        <div class="form-group col-md-6">
+          <!-- <label for="message-text" class="col-form-label">Mobile Number:</label> -->
+          <input type="value" formControlName='telephonenumber' placeholder="Telephone No." id="telephone"
+            class="form-control number" [value]="telephonenumber" [(ngModel)]="userArray.telephonenumber" />
+          <div class="error"
+            *ngIf="registerForm.controls['telephonenumber'].touched && !registerForm.controls['telephonenumber'].valid">
+            <span *ngIf="registerForm.controls['telephonenumber'].hasError('required')">
+              Telephone No. is required<br>
+            </span>
+            <span *ngIf="registerForm.controls['telephonenumber'].hasError('minlength')">
+              Telephone No. is 10 digit<br>
+            </span>
+            <span *ngIf="registerForm.controls['telephonenumber'].hasError('maxlength')">
+              Telephone No. is invalid<br>
+            </span>
+          </div>
+        </div><br>
+        <div class="form-group col-md-6">
+          <!-- <label for="message-text" class="col-form-label">Mobile Number:</label> -->
+          <input type="value" formControlName='number' placeholder="Mobile" class="form-control number" id="mobile"
+            [value]="mobile" [(ngModel)]="userArray.number" />
+          <div class="error" *ngIf="registerForm.controls['number'].touched && !registerForm.controls['number'].valid">
+            <span *ngIf="registerForm.controls['number'].hasError('required')">
+              number is required<br>
+            </span>
+            <span *ngIf="registerForm.controls['number'].hasError('minlength')">
+              number is 10 digit<br>
+            </span>
+            <span *ngIf="registerForm.controls['number'].hasError('maxlength')">
+              number is 10 invalid<br>
+            </span>
+          </div>
+        </div><br>
+        <div class="form-group">
+          <div class="col-md-6">
+            <input type="text" formControlName="proprietalName" class="form-control" placeholder="proprietal Name"
+              id="proprietal" [value]="proprietalName" [(ngModel)]="userArray.proprietal">
+            <div class="error"
+              *ngIf="registerForm.controls['proprietalName'].touched && !registerForm.controls['proprietalName'].valid">
+              <span *ngIf="registerForm.controls['proprietalName'].hasError('required') ">
+                Proprietal name is required
+              </span>
+            </div>
+          </div>
+        </div><br>
+        <div class="form-group">
+          <div class="col-md-6">
+            <input type="text" formControlName="druglicence" class="form-control" placeholder="Drug Licence No."
+              id="drugno" [value]="druglicence" [(ngModel)]="userArray.druglicence">
+            <div class="error"
+              *ngIf="registerForm.controls['druglicence'].touched && !registerForm.controls['druglicence'].valid">
+              <span *ngIf="registerForm.controls['druglicence'].hasError('required') ">
+                Drug licence no. is required
+              </span>
+            </div>
+          </div>
+        </div><br>
+        <div class="form-group">
+          <div class="col-md-6">
+            <input type="text" formControlName="food" class="form-control" placeholder="food Licence no" id="food"
+              [value]="food" [(ngModel)]="userArray.food">
+            <div class="error" *ngIf="registerForm.controls['food'].touched && !registerForm.controls['food'].valid">
+              <span *ngIf="registerForm.controls['food'].hasError('required') ">
+                Food Licence No is required
+              </span>
+            </div>
+          </div>
+        </div><br>
+        <div class="form-group">
+          <div class="col-md-6">
+            <input type="text" formControlName="gstNo" class="form-control" placeholder="GST no." id="gstno"
+              [value]="gstNo" [(ngModel)]="userArray.gstNo">
+            <div class="error" *ngIf="registerForm.controls['gstNo'].touched && !registerForm.controls['gstNo'].valid">
+              <span *ngIf="registerForm.controls['gstNo'].hasError('required') ">
+                GST no. is required
+              </span>
+            </div>
+          </div>
+        </div><br>
+      </div>
+      <div class="btn">
+        <button type="reset" class="btn btn-secondary">Cancel</button>
+        <button type="submit" class="btn btn-primary" [disabled]="registerForm.invalid">Submit</button>
+      </div>
+      <!-- <button type="submit" class="btn btn-primary">Submit</button> -->
+    </form>
+    <button type="button" class="btn btn-light" (click)="firstUser(id)">First</button>
+    <button type="button" class="btn btn-light" (click)="nextUser(id)">Next</button>
+    <button type="button" class="btn btn-light" (click)="prevoiusUser(id)">Previous</button>
+    <button type="button" class="btn btn-light" (click)="lastUser()">Last</button>
+  </div>
+
+</div>
