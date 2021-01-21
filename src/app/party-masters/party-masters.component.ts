@@ -16,7 +16,7 @@ export class PartyMastersComponent implements OnInit {
   registerForm: FormGroup;
 
   id: 0
-  name = ''
+ public name = ''
   address = ''
   email = ''
   telephonenumber = ''
@@ -68,7 +68,6 @@ export class PartyMastersComponent implements OnInit {
 
 
     if (this.partyService.getData(id) != undefined) {
-
       this.JSONDatas = this.partyService.getData(id)
       console.log(this.JSONDatas, "json")
       const parent = {
@@ -113,23 +112,20 @@ export class PartyMastersComponent implements OnInit {
 
   }
   lastUser(id) {
+ id =1 
+    this.partyService.getLastArray(id)
+    if (this.partyService.getLastArray(id) != null) {
 
-    this.partyService.getLastArray()
-    if (this.partyService.getLastArray() != undefined) {
-
-      this.JSONDatas = this.partyService.getLastArray()
+      this.JSONDatas = this.partyService.getLastArray(id)
       console.log(this.JSONDatas, "json")
       const parent = {
-        name:this.JSONDatas.name,
-        address:this.JSONDatas[0].address
+        name: this.JSONDatas.name,
+        address: this.JSONDatas[0].address
       }
       console.log(parent, "adsa")
-      var lastd = this.JSONDatas[this.JSONDatas.length - 1]
-      console.log(lastd,"tgdg")
-
-      // return lastd[0]
+      
     }
-    console.log(this.partyService.getLastArray(), "last data")
+    console.log(this.partyService.getLastArray(id), "last data")
 
   }
   nextUser(id) {

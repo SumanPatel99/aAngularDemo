@@ -9,7 +9,7 @@
         <div class="form-group">
           <div class="form-row">
             <div class="col-md-10">
-              <input type="text" formControlName="name" class="form-control" placeholder="Enter Name" id="name"
+              <input type="text" formControlName="name" class="text-capitalize form-control" placeholder="Enter Name" id="name"
                 [value]="name" [(ngModel)]="JSONDatas.name"><p>{{JSONDatas.name}}</p>
               <div class="error" *ngIf="registerForm.controls['name'].touched && !registerForm.controls['name'].valid">
                 <span *ngIf="registerForm.controls['name'].hasError('required') ">
@@ -27,7 +27,7 @@
               </div>
             </div><br>
             <div class="col-md-10">
-              <input type="text" name={{address}} formControlName="address" class="form-control" placeholder="Address" id="address"
+              <input type="text" name={{address}} formControlName="address" class="text-capitalize form-control" placeholder="Address" id="address"
                 [value]="address" [(ngModel)]="JSONDatas.address">
               <div class="error"
                 *ngIf="registerForm.controls['address'].touched && !registerForm.controls['address'].valid">
@@ -63,9 +63,9 @@
           <div class="form-row">
             <div class="col-md-10">
               <label for="inputState">State</label>
-              <select id="inputState" placeholder="State" class="form-select" formControlName="state" id="state"
+              <select id="inputState" placeholder="State" class="text-capitalize form-select" formControlName="state" id="state"
                 aria-label="Default select example" [(ngModel)]="JSONDatas.state" [value]=choose_state>
-                <option selected>Choose...</option>
+                <option disabled selected>Choose...</option>
                 <option>Maharashtra</option>
                 <option>Hyderabad</option>
                 <option>Delhi</option>
