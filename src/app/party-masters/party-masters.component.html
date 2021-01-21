@@ -8,9 +8,9 @@
       <div class="col-xl-8 col-lg-8">
         <div class="form-group">
           <div class="form-row">
-            <div class="col-md-6">
+            <div class="col-md-10">
               <input type="text" formControlName="name" class="form-control" placeholder="Enter Name" id="name"
-                [value]="name" [(ngModel)]="userArray.name">
+                [value]="name" [(ngModel)]="JSONDatas.name"><p>{{JSONDatas.name}}</p>
               <div class="error" *ngIf="registerForm.controls['name'].touched && !registerForm.controls['name'].valid">
                 <span *ngIf="registerForm.controls['name'].hasError('required') ">
                   name is required
@@ -26,9 +26,9 @@
                 </span>
               </div>
             </div><br>
-            <div class="col-md-6">
-              <input type="text" formControlName="address" class="form-control" placeholder="Address" id="address"
-                [value]="address" [(ngModel)]="userArray.address">
+            <div class="col-md-10">
+              <input type="text" name={{address}} formControlName="address" class="form-control" placeholder="Address" id="address"
+                [value]="address" [(ngModel)]="JSONDatas.address">
               <div class="error"
                 *ngIf="registerForm.controls['address'].touched && !registerForm.controls['address'].valid">
                 <span *ngIf="registerForm.controls['address'].hasError('required') ">
@@ -38,11 +38,11 @@
             </div>
           </div>
         </div><br>
-        <div class="form-row">
-          <div class="form-group col-md-6">
+        <div class="form-group">
+          <div class="form-row col-md-10">
             <!-- <label for="inputEmail4">Email</label> -->
-            <input type="email" formControlName="email" placeholder="Email" class="form-control email" id="email" [(ngModel)]="userArray.email"
-              [value]="emailId">
+            <input type="email" formControlName="email" placeholder="Email" class="form-control email" id="email" [(ngModel)]="JSONDatas.email"
+              [value]="email" >
             <div class="error" *ngIf="registerForm.controls['email'].touched && !registerForm.controls['email'].valid">
               <span *ngIf="registerForm.controls['email'].hasError('required') ">
                 Email is required
@@ -61,10 +61,10 @@
         </div><br>
         <div class="form-group">
           <div class="form-row">
-            <div class="col-md-6">
+            <div class="col-md-10">
               <label for="inputState">State</label>
               <select id="inputState" placeholder="State" class="form-select" formControlName="state" id="state"
-                aria-label="Default select example" [(ngModel)]="userArray.state">
+                aria-label="Default select example" [(ngModel)]="JSONDatas.state" [value]=choose_state>
                 <option selected>Choose...</option>
                 <option>Maharashtra</option>
                 <option>Hyderabad</option>
@@ -75,10 +75,10 @@
             </div>
           </div>
         </div><br>
-        <div class="form-group col-md-6">
+        <div class="form-group col-md-10">
           <!-- <label for="message-text" class="col-form-label">Mobile Number:</label> -->
           <input type="value" formControlName='telephonenumber' placeholder="Telephone No." id="telephone"
-            class="form-control number" [value]="telephonenumber" [(ngModel)]="userArray.telephonenumber" />
+            class="form-control number" [value]="telephonenumber" [(ngModel)]="JSONDatas.telephonenumber" />
           <div class="error"
             *ngIf="registerForm.controls['telephonenumber'].touched && !registerForm.controls['telephonenumber'].valid">
             <span *ngIf="registerForm.controls['telephonenumber'].hasError('required')">
@@ -92,26 +92,26 @@
             </span>
           </div>
         </div><br>
-        <div class="form-group col-md-6">
+        <div class="form-group col-md-10">
           <!-- <label for="message-text" class="col-form-label">Mobile Number:</label> -->
-          <input type="value" formControlName='number' placeholder="Mobile" class="form-control number" id="mobile"
-            [value]="mobile" [(ngModel)]="userArray.number" />
-          <div class="error" *ngIf="registerForm.controls['number'].touched && !registerForm.controls['number'].valid">
-            <span *ngIf="registerForm.controls['number'].hasError('required')">
+          <input type="value" formControlName='mobile' placeholder="Mobile" class="form-control number" id="mobile"
+            [value]="mobile" [(ngModel)]="JSONDatas.mobile" />
+          <div class="error" *ngIf="registerForm.controls['mobile'].touched && !registerForm.controls['mobile'].valid">
+            <span *ngIf="registerForm.controls['mobile'].hasError('required')">
               number is required<br>
             </span>
-            <span *ngIf="registerForm.controls['number'].hasError('minlength')">
+            <span *ngIf="registerForm.controls['mobile'].hasError('minlength')">
               number is 10 digit<br>
             </span>
-            <span *ngIf="registerForm.controls['number'].hasError('maxlength')">
+            <span *ngIf="registerForm.controls['mobile'].hasError('maxlength')">
               number is 10 invalid<br>
             </span>
           </div>
         </div><br>
         <div class="form-group">
-          <div class="col-md-6">
+          <div class="col-md-10">
             <input type="text" formControlName="proprietalName" class="form-control" placeholder="proprietal Name"
-              id="proprietal" [value]="proprietalName" [(ngModel)]="userArray.proprietal">
+              id="proprietal" [value]="proprietalName" [(ngModel)]="JSONDatas.proprietal" >
             <div class="error"
               *ngIf="registerForm.controls['proprietalName'].touched && !registerForm.controls['proprietalName'].valid">
               <span *ngIf="registerForm.controls['proprietalName'].hasError('required') ">
@@ -121,9 +121,9 @@
           </div>
         </div><br>
         <div class="form-group">
-          <div class="col-md-6">
+          <div class="col-md-10">
             <input type="text" formControlName="druglicence" class="form-control" placeholder="Drug Licence No."
-              id="drugno" [value]="druglicence" [(ngModel)]="userArray.druglicence">
+              id="drugno" [value]="druglicence" [(ngModel)]="JSONDatas.druglicence">
             <div class="error"
               *ngIf="registerForm.controls['druglicence'].touched && !registerForm.controls['druglicence'].valid">
               <span *ngIf="registerForm.controls['druglicence'].hasError('required') ">
@@ -133,9 +133,9 @@
           </div>
         </div><br>
         <div class="form-group">
-          <div class="col-md-6">
+          <div class="col-md-10">
             <input type="text" formControlName="food" class="form-control" placeholder="food Licence no" id="food"
-              [value]="food" [(ngModel)]="userArray.food">
+              [value]="food" [(ngModel)]="JSONDatas.food" >
             <div class="error" *ngIf="registerForm.controls['food'].touched && !registerForm.controls['food'].valid">
               <span *ngIf="registerForm.controls['food'].hasError('required') ">
                 Food Licence No is required
@@ -144,9 +144,9 @@
           </div>
         </div><br>
         <div class="form-group">
-          <div class="col-md-6">
+          <div class="col-md-10">
             <input type="text" formControlName="gstNo" class="form-control" placeholder="GST no." id="gstno"
-              [value]="gstNo" [(ngModel)]="userArray.gstNo">
+              [value]="gstNo" [(ngModel)]="JSONDatas.gstNo">
             <div class="error" *ngIf="registerForm.controls['gstNo'].touched && !registerForm.controls['gstNo'].valid">
               <span *ngIf="registerForm.controls['gstNo'].hasError('required') ">
                 GST no. is required
@@ -155,16 +155,18 @@
           </div>
         </div><br>
       </div>
-      <div class="btn">
+      <div class="btn btndiv">
         <button type="reset" class="btn btn-secondary">Cancel</button>
         <button type="submit" class="btn btn-primary" [disabled]="registerForm.invalid">Submit</button>
       </div>
       <!-- <button type="submit" class="btn btn-primary">Submit</button> -->
     </form>
-    <button type="button" class="btn btn-light" (click)="firstUser(id)">First</button>
+    <div class="btnuser">
+      <button type="button" class="btn btn-light" (click)="firstUser(id)">First</button>
     <button type="button" class="btn btn-light" (click)="nextUser(id)">Next</button>
     <button type="button" class="btn btn-light" (click)="prevoiusUser(id)">Previous</button>
     <button type="button" class="btn btn-light" (click)="lastUser()">Last</button>
+    </div>
   </div>
 
 </div>

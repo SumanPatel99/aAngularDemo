@@ -29,7 +29,7 @@ export class PartyMastersService {
 
   constructor() { }
 
-  storeData(obj, id): Observable<any> {
+  storeData(obj): Observable<any> {
 
     if (localStorage.length == 0) {
       localStorage.setItem("Id", "0");
@@ -37,7 +37,7 @@ export class PartyMastersService {
 
     var currentCount = parseInt(localStorage.getItem("Id"));
     localStorage.setItem("Id", (currentCount + 1).toString());
-    localStorage.setItem("users", JSON.stringify(obj.value))
+    localStorage.setItem("LastUser", JSON.stringify(obj.value))
 
     this.JSONDatas = [
       {
@@ -46,15 +46,16 @@ export class PartyMastersService {
         address: obj.value.address,
         state: obj.value.state,
         telephone: obj.value.telephonenumber,
-        number: obj.value.number,
+        mobile: obj.value.mobile,
         proprietal: obj.value.proprietalName,
         drug_no: obj.value.druglicence,
         food: obj.value.food,
-        email: obj.value.email
+        email: obj.value.email,
+        gstNo:obj.value.gstNo
       }
     ]
     let userArray;
-    if (localStorage.getItem(this.localStorageKey) === null) {
+    if (localStorage.getItem(this.localStorageKey) == null) {
 
       userArray = [];
     } else {
@@ -64,51 +65,35 @@ export class PartyMastersService {
     userArray.push(this.JSONDatas);
     localStorage.setItem(this.localStorageKey, JSON.stringify(userArray));
 
-    // localStorage.setItem("name", obj.value.name)
-    // localStorage.setItem("address", obj.value.address)
-    // localStorage.setItem("email", obj.value.email)
-    // localStorage.setItem("state", obj.value.state)
-    // localStorage.setItem("telNo", obj.value.telephonenumber)
-    // localStorage.setItem("mobile", obj.value.number)
-    // localStorage.setItem("proprietal", obj.value.proprietalName)
-    // localStorage.setItem("drug No.", obj.value.druglicence)
-    // localStorage.setItem("Food Lic No", obj.value.food)
-    // localStorage.setItem("GST No", obj.value.gstNo)
-
     return obj
   }
 
   getData(id):any {
     // localStorage.getItem()
-    id = 0
+     id = 0
     if (localStorage['userArray']) {
       this.JSONDatas = JSON.parse(localStorage.getItem('userArray'))
-      console.log(this.JSONDatas[id], "user")
-      var newa = this.JSONDatas[0]
+      // console.log(this.JSONDatas[id], "user")
     }
+   
+    //  this.JSONDatas = JSON.parse(localStorage.getItem('userArray'))
+    //   console.log(this.JSONDatas[id], "user")
+      return this.JSONDatas[id]
 
-    // var archive = [],
-    //   // keys = Object.keys(localStorage),
-    //   keys = Object.values(localStorage),
-    //   i = 0,j=2, key,id=1;
-    //   console.log(keys[2],"keys")
-    //   // console.log(keys,i,"last")
-    // for (; key = keys[j]; i++) {
-    //   archive.push(localStorage.getItem(key));
-    // }
-    // console.log('return' ,archive)
-    // return archive;
-
+   
   }
-  getLastArray(id: any) {
+  getLastArray() {
     var archive = [],
-      keys = Object.keys(localStorage),
-      i = 0, key;
-    // console.log(keys,i,"last")
-    for (; key = keys[i]; i--) {
-      archive.push(localStorage.getItem(key));
-    }
-    return archive;
+    keys = Object.keys(localStorage),
+    i = 2, key;
+    // console.log(keys.length-1)
+  // console.log(keys,i,"last")
+  for (; key = keys[i]; i--) {
+    this.JSONDatas.push(localStorage.getItem(key));
+  }
+  var lastdata = this.JSONDatas
+  console.log(lastdata)
+  return lastdata;
   }
   getNextArray() {
     // if (localStorage['userArray']) {
