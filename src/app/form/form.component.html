@@ -1,6 +1,6 @@
 <div class="container">
   <nav class="navbar navbar-dark bg-dark">
-    <a class="navbar-brand" href="#">Party Details</a>
+    <a class="navbar-brand" href="#">New Form</a>
   </nav>
   <div class="formdiv">
     <form [formGroup]="registerForm" (ngSubmit)="Register(registerForm)">
@@ -42,7 +42,7 @@
           <div class="form-row col-md-10">
             <!-- <label for="inputEmail4">Email</label> -->
             <input type="email" formControlName="email" placeholder="Email" class="form-control email" id="email" [(ngModel)]="JSONDatas.email"
-              [value]="email" >
+              [value]="email">
             <div class="error" *ngIf="registerForm.controls['email'].touched && !registerForm.controls['email'].valid">
               <span *ngIf="registerForm.controls['email'].hasError('required') ">
                 Email is required
@@ -157,17 +157,11 @@
       </div>
       <div class="btn btndiv">
         <button type="submit" class="btn btn-primary" [disabled]="registerForm.invalid">Submit</button>
-
         <button type="reset" class="btn btn-secondary">Cancel</button>
       </div>
       <!-- <button type="submit" class="btn btn-primary">Submit</button> -->
     </form>
-    <div class="btnuser">
-      <button type="button" class="btn btn-light" (click)="firstUser(id)">First</button>
-    <button type="button" class="btn btn-light" (click)="nextUser(id)">Next</button>
-    <button type="button" class="btn btn-light" (click)="prevoiusUser(id)">Previous</button>
-    <button type="button" class="btn btn-light" (click)="lastUser()">Last</button>
-    </div>
+    
   </div>
 
 </div>

@@ -8,11 +8,13 @@ import {NgxWebstorageModule} from 'ngx-webstorage';
 
 import { HttpModule } from '@angular/http'
 import { from } from 'rxjs';
+import { FormComponent } from './form/form.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    PartyMastersComponent
+    PartyMastersComponent,
+    FormComponent
   ],
   imports: [
     BrowserModule,

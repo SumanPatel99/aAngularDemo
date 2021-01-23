@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { Party } from './party'
 // import Http from '@angular/http'
 
 @Injectable({
@@ -9,20 +8,6 @@ import { Party } from './party'
 export class PartyMastersService {
 
   productURL: any
-  users: [
-    {
-      "id": 1,
-      "name": "abc",
-      "address": "bhiwandi",
-      "state": "maharashtra",
-      "telephone": 9876534567,
-      "number": 8756473678,
-      "proprietal": 8347338,
-      "drug no": "dasjj99",
-      "food": "ghhsd67",
-      "email": "abc@gmail.com"
-    }
-  ]
   JSONDatas: any = []
   i = 0
   localStorageKey = 'userArray'
@@ -76,23 +61,17 @@ export class PartyMastersService {
       this.JSONDatas = JSON.parse(localStorage.getItem('userArray'))
       // console.log(this.JSONDatas[id], "user")
     }
-
     //  this.JSONDatas = JSON.parse(localStorage.getItem('userArray'))
     //   console.log(this.JSONDatas[id], "user")
     return this.JSONDatas[id]
 
   }
-  getLastArray(id) {
-    var archive = [],
-      keys = Object.keys(localStorage),
-      i = 1, key;
-    // console.log(keys.length-1)
-    // console.log(keys,i,"last")
-    for (; key = keys[i]; i--) {
-      archive.push(localStorage.getItem(key));
+  getLastArray() {
+    if (localStorage['LastUser']) {
+      this.JSONDatas = JSON.parse(localStorage.getItem('LastUser'))
     }
-    console.log(archive)
-    return archive;
+      console.log(this.JSONDatas, "last servic")
+    return this.JSONDatas
   }
   getNextArray() {
     // if (localStorage['userArray']) {
