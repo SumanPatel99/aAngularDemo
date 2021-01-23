@@ -26,7 +26,7 @@ export class PartyMastersComponent implements OnInit {
   proprietalName = ''
   user: any
 
-  public JSONDatas: any =[] ;
+  public JSONDatas: any = [];
   // public firstUserArray: any
   constructor(private frm: FormBuilder, private partyService: PartyMastersService) {
 
@@ -112,27 +112,27 @@ export class PartyMastersComponent implements OnInit {
 
 
   }
-  lastUser(id:any) {
+  lastUser(id: any) {
     this.partyService.getLastArray()
     if (this.partyService.getLastArray() != undefined) {
       this.JSONDatas = this.partyService.getLastArray()
       console.log(this.JSONDatas, "jsondata")
       // setTimeout(
       //   () => {
-          const parent = {
-            name: this.JSONDatas.name,
-            address: this.JSONDatas.address,
-            telephonenumber: this.JSONDatas.telephonenumber,
-            proprietalName: this.JSONDatas.proprietalName,
-            druglicence: this.JSONDatas.druglicence,
-            food: this.JSONDatas.food,
-            gstNo: this.JSONDatas.gstNo,
-            mobile: this.JSONDatas.mobile,
-            email: this.JSONDatas.email,
-            state: this.JSONDatas.state,
-          }
-          console.log(parent, "last")
-          this.registerForm.patchValue(parent)
+      const parent = {
+        name: this.JSONDatas.name,
+        address: this.JSONDatas.address,
+        telephonenumber: this.JSONDatas.telephonenumber,
+        proprietalName: this.JSONDatas.proprietalName,
+        druglicence: this.JSONDatas.druglicence,
+        food: this.JSONDatas.food,
+        gstNo: this.JSONDatas.gstNo,
+        mobile: this.JSONDatas.mobile,
+        email: this.JSONDatas.email,
+        state: this.JSONDatas.state,
+      }
+      console.log(parent, "last")
+      this.registerForm.patchValue(parent)
       //   }, 200
       // )
     }
@@ -162,12 +162,9 @@ export class PartyMastersComponent implements OnInit {
   }
   prevoiusUser(id) {
     if (this.partyService.getPrevoiusArray() != undefined) {
-
       this.JSONDatas = this.partyService.getPrevoiusArray()
       console.log(this.JSONDatas, "json")
-
       const parent = {
-
         name: this.JSONDatas[0].name,
         address: this.JSONDatas[0].address,
         telephonenumber: this.JSONDatas[0].telephone,
