@@ -17,7 +17,7 @@ export class PartyMastersService {
   storeData(obj): Observable<any> {
     localStorage.setItem("LastUser", JSON.stringify(obj.value))
 
-    if (localStorage.length == 1) {
+    if (localStorage.length==1) {
       localStorage.setItem("Id", "1");
     }
 

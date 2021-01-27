@@ -1,0 +1,15 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-4">
+      <img class="img" [src]="image" alt="user-image"><br><br>
+     
+  </div>
+
+    <p class="text-capitalize text">
+      I'm <span class="bold">{{profile.name}}</span> and Im above <span class="bold">{{profile.age}}</span> years and you can send
+            your emails to <span class="email bold">{{profile.email}}</span>.
+            I live in state of <span class="bold">{{profile.state}}</span> . And please send me
+            newsletters. please reach out to me on my phone <a href="tel:{{profile?.mobile}}">{{profile.mobile}}</a> 
+    </p>
+  </div>
+</div>

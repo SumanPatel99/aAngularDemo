@@ -45,12 +45,12 @@ export class PartyMastersComponent implements OnInit {
     this.registerForm = this.frm.group({
       name: ['', [Validators.required, Validators.minLength(2), Validators.maxLength(20), Validators.pattern('^[a-zA-Z \-\']+')]],
       address: ['', Validators.required],
-      telephonenumber: ['', [Validators.required, Validators.minLength(10), Validators.maxLength(10)]],
+      telephonenumber: ['', [Validators.required, Validators.minLength(10), Validators.maxLength(10),Validators.pattern('^[0-9]+')]],
       proprietalName: ['', Validators.required],
       druglicence: ['', Validators.required],
       food: ['', Validators.required],
       gstNo: ['', Validators.required],
-      mobile: ['', [Validators.required, Validators.minLength(10), Validators.maxLength(10)]],
+      mobile: ['', [Validators.required, Validators.minLength(10), Validators.maxLength(10),Validators.pattern('^[0-9]+')]],
       email: ['', [Validators.required, Validators.email, Validators.minLength(6), Validators.maxLength(20)]],
       state: ['', Validators.required],
     })

@@ -32,7 +32,7 @@
               <div class="error"
                 *ngIf="registerForm.controls['address'].touched && !registerForm.controls['address'].valid">
                 <span *ngIf="registerForm.controls['address'].hasError('required') ">
-                  address is required
+                  Address is required
                 </span>
               </div>
             </div>
@@ -90,6 +90,9 @@
             <span *ngIf="registerForm.controls['telephonenumber'].hasError('maxlength')">
               Telephone No. is invalid<br>
             </span>
+            <span *ngIf="registerForm.controls['telephonenumber'].hasError('pattern')">
+              Only numbers are allowed<br>
+            </span>
           </div>
         </div><br>
         <div class="form-group col-md-10">
@@ -105,6 +108,9 @@
             </span>
             <span *ngIf="registerForm.controls['mobile'].hasError('maxlength')">
               number is 10 invalid<br>
+            </span>
+            <span *ngIf="registerForm.controls['mobile'].hasError('pattern')">
+              Only numbers are allowed<br>
             </span>
           </div>
         </div><br>

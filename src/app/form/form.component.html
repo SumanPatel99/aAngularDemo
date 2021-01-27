@@ -1,21 +1,30 @@
 <div class="container">
-  <nav class="navbar navbar-dark bg-dark">
-    <a class="navbar-brand" href="#">New Form</a>
-  </nav>
+  <!-- <nav class="navbar navbar-dark bg-dark">
+    <a class="navbar-brand" href="#">Party Details</a>
+  </nav> -->
   <div class="formdiv">
     <form [formGroup]="registerForm" (ngSubmit)="Register(registerForm)">
+      <div class="col-xl-4 col-lg-4">
+        <div class="form-group">
+          <label for="exampleFormControlFile1">Choose Image</label>
+          <input type="file" (change)="selectedFile($event)" accept="image/*" class="form-control-file"
+            id="exampleFormControlFile1">
+          <!-- <image /> -->
+        </div>
+      </div>
       <div class="col-xl-8 col-lg-8">
         <div class="form-group">
-          <div class="form-row">
-            <div class="col-md-10">
-              <input type="text" formControlName="name" class="text-capitalize form-control" placeholder="Enter Name" id="name"
-                [value]="name" [(ngModel)]="JSONDatas.name"><p>{{JSONDatas.name}}</p>
-              <div class="error" *ngIf="registerForm.controls['name'].touched && !registerForm.controls['name'].valid">
+          <div class="row">
+            <div class="col">
+              <label for="message-text" class="col-form-label">Name:</label>
+              <input type="text" formControlName="name" class="form-control" placeholder="First name" [value]="name"
+                [(ngModel)]="profile.name">
+              <div *ngIf="registerForm.controls['name'].touched && !registerForm.controls['name'].valid">
                 <span *ngIf="registerForm.controls['name'].hasError('required') ">
                   name is required
                 </span>
                 <span *ngIf="registerForm.controls['name'].hasError('pattern') ">
-                  Invalid name
+                  Invalid
                 </span>
                 <span *ngIf="registerForm.controls['name'].hasError('minlength') ">
                   min length is 2
@@ -24,143 +33,160 @@
                   max length is 20
                 </span>
               </div>
-            </div><br>
-            <div class="col-md-10">
-              <input type="text" name={{address}} formControlName="address" class="text-capitalize form-control" placeholder="Address" id="address"
-                [value]="address" [(ngModel)]="JSONDatas.address">
-              <div class="error"
-                *ngIf="registerForm.controls['address'].touched && !registerForm.controls['address'].valid">
-                <span *ngIf="registerForm.controls['address'].hasError('required') ">
-                  address is required
+            </div>
+            <div class="col">
+              <!-- <div class="col"> -->
+              <label for="message-text" class="col-form-label">Mobile:</label>
+              <input type="value" formControlName='mobile' placeholder="Mobile" class="form-control mobile"
+                id="message-text" [value]="mobile" [(ngModel)]="profile.mobile" />
+              <div *ngIf="registerForm.controls['mobile'].touched && !registerForm.controls['mobile'].valid">
+                <span *ngIf="registerForm.controls['mobile'].hasError('required')">
+                  mobile number is required<br>
                 </span>
+                <span *ngIf="registerForm.controls['mobile'].hasError('minlength')">
+                  mobile number is 10 digit<br>
+                </span>
+                <span *ngIf="registerForm.controls['mobile'].hasError('maxlength')">
+                  mobile number is invalid<br>
+                </span>
+                <span *ngIf="registerForm.controls['mobile'].hasError('pattern')">
+                  Only number are allowed<br>
+                </span>
+                <!-- </div> -->
               </div>
             </div>
           </div>
-        </div><br>
+        </div>
         <div class="form-group">
-          <div class="form-row col-md-10">
-            <!-- <label for="inputEmail4">Email</label> -->
-            <input type="email" formControlName="email" placeholder="Email" class="form-control email" id="email" [(ngModel)]="JSONDatas.email"
-              [value]="email">
-            <div class="error" *ngIf="registerForm.controls['email'].touched && !registerForm.controls['email'].valid">
-              <span *ngIf="registerForm.controls['email'].hasError('required') ">
-                Email is required
-              </span>
-              <span *ngIf="registerForm.controls['email'].hasError('email') ">
-                Invalid emailId
-              </span>
-              <span *ngIf="registerForm.controls['email'].hasError('minlength') ">
-                min length is 6
-              </span>
-              <span *ngIf="registerForm.controls['email'].hasError('maxlength') ">
-                max length is 20
-              </span>
+          <div class="row">
+            <div class="col">
+              <label for="message-text" class="col-form-label">Email:</label>
+
+              <!-- <label for="inputEmail4">Email</label> -->
+              <input type="email" formControlName="email" placeholder="Email" class="form-control email"
+                id="inputEmail4" [value]="email" [(ngModel)]="profile.email">
+              <div *ngIf="registerForm.controls['email'].touched && !registerForm.controls['email'].valid">
+                <span *ngIf="registerForm.controls['email'].hasError('required') ">
+                  Email is required
+                </span>
+                <span *ngIf="registerForm.controls['email'].hasError('email') ">
+                  Invalid emailId
+                </span>
+                <span *ngIf="registerForm.controls['email'].hasError('minlength') ">
+                  min length is 6
+                </span>
+                <span *ngIf="registerForm.controls['email'].hasError('maxlength') ">
+                  max length is 20
+                </span>
+              </div>
+            </div>
+            <div class="col">
+              <label for="message-text" class="col-form-label">Age:</label>
+              <input type="text" placeholder="Age" class="form-control" id="formControlRange" formControlName="age"
+                [(ngModel)]="profile.age">
+                <!-- <div *ngIf="registerForm.controls['age'].touched && !registerForm.controls['age'].valid">
+                  <span *ngIf="registerForm.controls['age'].hasError('maxlength') ">
+                    Age in invalid
+                  </span>
+                  <span *ngIf="registerForm.controls['age'].hasError('required') ">
+                    Age is required
+                  </span>
+                  </div> -->
             </div>
           </div>
-        </div><br>
+        </div>
+
         <div class="form-group">
-          <div class="form-row">
-            <div class="col-md-10">
+          <div class="row">
+
+            <!-- <label for="formControlRange">Age</label> -->
+            <div class="col">
+              <label for="message-text" class="col-form-label">Address:</label>
+
+              <!-- <label for="inputAddress">Address</label> -->
+              <!-- <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St" [value]="address1"> -->
+              <div class="form-group">
+                <label for="inputAddress1">Home Address</label>
+                <input type="text" class="form-control" id="inputAddress1" formControlName="address1"
+                  [(ngModel)]="profile.address1">
+              </div>
+              <div class="form-group">
+                <label for="inputAddress2">Company Address</label>
+                <input type="text" class="form-control" id="inputAddress2" formControlName="address2"
+                  [(ngModel)]="profile.address2">
+              </div>
+            </div>
+            <div class="col">
+              <label for="message-text" class="col-form-label">City:</label>
+
+              <input type="text" formControlName="city" placeholder="City" class="form-control city" id="inputCity"
+                [(ngModel)]="profile.city">
+
+            </div>
+          </div>
+        </div>
+        <div class="form-group">
+          <div class="row">
+            <div class="col">
               <label for="inputState">State</label>
-              <select id="inputState" placeholder="State" class="text-capitalize form-select" formControlName="state" id="state"
-                aria-label="Default select example" [(ngModel)]="JSONDatas.state" [value]=choose_state>
-                <option disabled selected>Choose...</option>
+              <select id="inputState" placeholder="State" class="form-control" formControlName="state"
+                [(ngModel)]="profile.state">
+                <option selected disabled>Choose...</option>
                 <option>Maharashtra</option>
                 <option>Hyderabad</option>
                 <option>Delhi</option>
                 <option>Varanasi</option>
                 <option>Pune</option>
               </select>
+
+            </div>
+            <div class="col">
+              <label for="inputState">Country</label>
+              <select id="inputState" placeholder="Country" class="form-control" formControlName="country"
+                [(ngModel)]="profile.country">
+                <option selected disabled>Choose...</option>
+                <option>India</option>
+                <option>USA</option>
+                <option>France</option>
+              </select>
             </div>
           </div>
-        </div><br>
-        <div class="form-group col-md-10">
-          <!-- <label for="message-text" class="col-form-label">Mobile Number:</label> -->
-          <input type="value" formControlName='telephonenumber' placeholder="Telephone No." id="telephone"
-            class="form-control number" [value]="telephonenumber" [(ngModel)]="JSONDatas.telephonenumber" />
-          <div class="error"
-            *ngIf="registerForm.controls['telephonenumber'].touched && !registerForm.controls['telephonenumber'].valid">
-            <span *ngIf="registerForm.controls['telephonenumber'].hasError('required')">
-              Telephone No. is required<br>
-            </span>
-            <span *ngIf="registerForm.controls['telephonenumber'].hasError('minlength')">
-              Telephone No. is 10 digit<br>
-            </span>
-            <span *ngIf="registerForm.controls['telephonenumber'].hasError('maxlength')">
-              Telephone No. is invalid<br>
-            </span>
-          </div>
-        </div><br>
-        <div class="form-group col-md-10">
-          <!-- <label for="message-text" class="col-form-label">Mobile Number:</label> -->
-          <input type="value" formControlName='mobile' placeholder="Mobile" class="form-control number" id="mobile"
-            [value]="mobile" [(ngModel)]="JSONDatas.mobile" />
-          <div class="error" *ngIf="registerForm.controls['mobile'].touched && !registerForm.controls['mobile'].valid">
-            <span *ngIf="registerForm.controls['mobile'].hasError('required')">
-              number is required<br>
-            </span>
-            <span *ngIf="registerForm.controls['mobile'].hasError('minlength')">
-              number is 10 digit<br>
-            </span>
-            <span *ngIf="registerForm.controls['mobile'].hasError('maxlength')">
-              number is 10 invalid<br>
-            </span>
-          </div>
-        </div><br>
+        </div>
+        <!-- <div class="form-group">
+              <mat-form-field class="example-chip-list">
+                  <mat-chip-list #chipList aria-label="Tags selection">
+                      <input placeholder="Tags" formControlName="tags" [matChipInputFor]="chipList"
+                          [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+                          [matChipInputAddOnBlur]="addOnBlur"
+                          (matChipInputTokenEnd)="add($event)"><br>
+                      <mat-chip *ngFor="let tag of tags" [selectable]="selectable"
+                          [removable]="removable" (removed)="remove(tag)">
+                          {{tag.name}}
+                          <mat-icon matChipRemove *ngIf="removable" class="icon">
+                              <i class="fa fa-times" aria-hidden="true"></i>
+                          </mat-icon>
+                      </mat-chip>
+
+                  </mat-chip-list>
+              </mat-form-field>
+          </div> -->
         <div class="form-group">
-          <div class="col-md-10">
-            <input type="text" formControlName="proprietalName" class="form-control" placeholder="proprietal Name"
-              id="proprietal" [value]="proprietalName" [(ngModel)]="JSONDatas.proprietal" >
-            <div class="error"
-              *ngIf="registerForm.controls['proprietalName'].touched && !registerForm.controls['proprietalName'].valid">
-              <span *ngIf="registerForm.controls['proprietalName'].hasError('required') ">
-                Proprietal name is required
-              </span>
-            </div>
+          <div class="form-check">
+            <input class="form-check-input" [value]="checked" formControlName="subscribe" type="checkbox" id="gridCheck"
+              [(ngModel)]="profile.subscribe">
+            <label class="form-check-label" for="gridCheck">
+              Subscribe to newsletter
+            </label>
           </div>
-        </div><br>
-        <div class="form-group">
-          <div class="col-md-10">
-            <input type="text" formControlName="druglicence" class="form-control" placeholder="Drug Licence No."
-              id="drugno" [value]="druglicence" [(ngModel)]="JSONDatas.druglicence">
-            <div class="error"
-              *ngIf="registerForm.controls['druglicence'].touched && !registerForm.controls['druglicence'].valid">
-              <span *ngIf="registerForm.controls['druglicence'].hasError('required') ">
-                Drug licence no. is required
-              </span>
-            </div>
-          </div>
-        </div><br>
-        <div class="form-group">
-          <div class="col-md-10">
-            <input type="text" formControlName="food" class="form-control" placeholder="food Licence no" id="food"
-              [value]="food" [(ngModel)]="JSONDatas.food" >
-            <div class="error" *ngIf="registerForm.controls['food'].touched && !registerForm.controls['food'].valid">
-              <span *ngIf="registerForm.controls['food'].hasError('required') ">
-                Food Licence No is required
-              </span>
-            </div>
-          </div>
-        </div><br>
-        <div class="form-group">
-          <div class="col-md-10">
-            <input type="text" formControlName="gstNo" class="form-control" placeholder="GST no." id="gstno"
-              [value]="gstNo" [(ngModel)]="JSONDatas.gstNo">
-            <div class="error" *ngIf="registerForm.controls['gstNo'].touched && !registerForm.controls['gstNo'].valid">
-              <span *ngIf="registerForm.controls['gstNo'].hasError('required') ">
-                GST no. is required
-              </span>
-            </div>
-          </div>
-        </div><br>
+        </div>
       </div>
-      <div class="btn btndiv">
+      <div class="btndiv">
+        <button type="reset" class="btn btn-secondary">Close</button> &nbsp;&nbsp;
         <button type="submit" class="btn btn-primary" [disabled]="registerForm.invalid">Submit</button>
-        <button type="reset" class="btn btn-secondary">Cancel</button>
       </div>
       <!-- <button type="submit" class="btn btn-primary">Submit</button> -->
-    </form>
-    
+    </form><br>
+    <button (click)="getdata()">getData</button>
   </div>
 
 </div>
