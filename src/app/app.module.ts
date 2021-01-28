@@ -7,12 +7,23 @@ import { PartyMastersComponent } from './party-masters/party-masters.component';
 import {NgxWebstorageModule} from 'ngx-webstorage';
 
 import { HttpModule } from '@angular/http'
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { from } from 'rxjs';
 import { FormComponent } from './form/form.component';
 import { HeaderComponent } from './header/header.component';
 import { ImageshowComponent } from './imageshow/imageshow.component';
 import { ProfileComponent } from './profile/profile.component';
+import { LoginComponent } from './login/login.component';
+import { RegisterComponent } from './register/register.component';
+import { AlertComponent } from './alert/alert.component';
+import { JwtInterceptor, ErrorInterceptor } from "./helpers";
+
+import { fakeBackendProvider } from './helpers';
+import { AuthService } from './auth.service';
+import { AlertService } from './alert.service';
+import { Guard1Guard } from './guard1.guard';
+import { UserService } from './user.service';
+import { LogoutComponent } from './logout/logout.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +32,11 @@ import { ProfileComponent } from './profile/profile.component';
     FormComponent,
     HeaderComponent,
     ImageshowComponent,
-    ProfileComponent
+    ProfileComponent,
+    LoginComponent,
+    RegisterComponent,
+    AlertComponent,
+    LogoutComponent
   ],
   imports: [
     BrowserModule,
@@ -32,7 +47,17 @@ import { ProfileComponent } from './profile/profile.component';
     HttpClientModule
     // NgxWebstorageModule.forRoot(),
   ],
-  providers: [],
+  providers: [
+    Guard1Guard,
+        AlertService,
+        AuthService,
+        UserService,
+        { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
+        { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
+
+        // provider used to create fake backend
+        fakeBackendProvider
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

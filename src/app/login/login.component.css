@@ -1,0 +1,14 @@
+.login-form-1{ padding: 9%; background:#282726; box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.2), 0 9px 26px 0 rgba(0, 0, 0, 0.19);}
+.login-form-1 h3{text-align: center; margin-bottom:12%; color:#fff; }
+.form-control{margin-left: 159px; border-bottom: 1px solid #49651c !important; border: none;}
+.btn { margin-left: 200px; background-color: #191717de; border: 2px; border-radius: 4px; width: 70px; }
+.form-control:hover{ border:1px blue }
+.row{ height: 319px; margin-top: 118px; background-color: #c3c29a; margin-left: 200px; margin-right: 200px; border-radius: 36px;}
+.btn-link{ width: 12%; color: white; margin-left: 155px; }
+.error{
+    text-align: end;
+    color: red;
+    font-weight: 600;
+    /* font-size: 22px; */
+    text-transform: capitalize;
+}

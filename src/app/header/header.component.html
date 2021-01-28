@@ -1,25 +1,31 @@
-<nav class="container navbar navbar-expand-lg navbar-dark bg-dark">
+<nav class="container navbar navbar-expand-lg navbar-dark bg-dark" *ngIf="for_password">
   <a class="navbar-brand" href="#">Navbar</a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
-      <li class="nav-item active">
+      <li class="nav-item active" *ngIf="for_password">
         <a class="nav-link" routerLink="/">Home </a>
       </li>
-      <li class="nav-item" >
+      <li class="nav-item" *ngIf="for_password">
         <a class="nav-link" routerLink="/partymaster">Party Master</a>
       </li>
-      <li class="nav-item">
-          <a class="nav-link" routerLink="/image">Image</a>
+      <li class="nav-item" *ngIf="for_password">
+        <a class="nav-link" routerLink="/image">Image</a>
       </li>
-      <li class="nav-item">
-          <a class="nav-link" >Group</a>
+
+      <li class="nav-item" *ngIf="for_password">
+        <a class="nav-link" routerLink="/logout">Logout</a>
       </li>
       
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/login" *ngIf="for_login">login</a>
+      </li>
+
     </ul>
-    
+
   </div>
 </nav>

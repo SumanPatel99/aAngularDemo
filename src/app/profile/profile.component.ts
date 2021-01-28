@@ -11,7 +11,6 @@ import { FormService } from '../form.service';
 export class ProfileComponent implements OnInit {
 id
 profile
-registerForm
 image
 selectedImage
   constructor(private activatedRoute : ActivatedRoute, private userService : FormService) { }
@@ -35,7 +34,7 @@ selectedImage
       this.image = localStorage.image
       console.log(this.image,"image store")
     }
-    this.userService.getImage()
+    // this.userService.getImage()
   }
 
 }

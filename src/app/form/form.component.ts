@@ -19,12 +19,11 @@ export class FormComponent implements OnInit {
   public mobile = ''
   public state = ''
   public checked = false
-  public image :string 
   isHome = false;
   isCompany = false;
-user:any
+  user:any
+  image : any 
   selectedImage;
- 
   profile : any =[]
   visible = true;
   selectable = true;
@@ -41,8 +40,7 @@ user:any
       city: ['', Validators.required],
       state: ['', Validators.required],
       country: ['', Validators.required],
-      subscribe: [false],
-      image:''
+      subscribe: [false]
     })
    }
 
@@ -80,7 +78,7 @@ user:any
       localStorage.setItem("image",user) 
       me.selectedImage = reader.result;
     }
-    console.log(localStorage.getItem("image"),"get image")
+    // console.log(localStorage.getItem("image"),"get image")
   }
 
 }

@@ -1,0 +1,49 @@
+<div class="container">
+  <div class="row justify-content-md-center">
+    <h2 class="text-center">Register</h2>
+<form form [formGroup]="registerForm" (ngSubmit)="Postdata(registerForm)">
+  <div class="form-group col-md-7">
+    <label for="firstName">First Name</label>
+    <input type="text" placeholder="Enter firstname" formControlName="firstName" class="form-control" />
+    <div class="error" *ngIf="registerForm.controls['firstName'].touched && !registerForm.controls['firstName'].valid">
+      <span *ngIf="registerForm.controls['firstName'].hasError('required') ">
+        Firstname is required
+      </span>
+    </div>
+  </div>
+  <div class="form-group col-md-7">
+    <label for="lastName">Last Name</label>
+    <input type="text" placeholder="Enter Lastname" formControlName="lastName" class="form-control" />
+    <div class="error" *ngIf="registerForm.controls['lastName'].touched && !registerForm.controls['lastName'].valid">
+      <span *ngIf="registerForm.controls['lastName'].hasError('required') ">
+        Lastname is required
+      </span>
+    </div>
+  </div>
+  <div class="form-group col-md-7">
+    <label for="username">Username</label>
+    <input type="text" placeholder="Enter Username" formControlName="username" class="form-control" />
+    <div class="error" *ngIf="registerForm.controls['username'].touched && !registerForm.controls['username'].valid">
+      <span *ngIf="registerForm.controls['username'].hasError('required') ">
+        Firstname is required
+      </span>
+    </div>
+  </div>
+  <div class="form-group col-md-7">
+    <label for="password">Password</label>
+    <input type="password" placeholder="Enter Password" formControlName="password" class="form-control" />
+    <div class="error" *ngIf="registerForm.controls['password'].touched && !registerForm.controls['password'].valid">
+      <span *ngIf="registerForm.controls['password'].hasError('required') ">
+        Password is required
+      </span>
+    </div>
+  </div>&nbsp;
+  <div class="form-group col-md-7">
+    <button [disabled]="loading" class="btn btn-primary">Register</button>
+    <img *ngIf="loading"
+      src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA==" />
+    <a [routerLink]="['/login']" class="btn btn-link">Cancel</a>
+  </div>
+</form>
+  </div>
+</div>
