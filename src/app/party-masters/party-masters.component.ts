@@ -3,7 +3,7 @@ import { Component, OnInit } from '@angular/core';
 // import {FormBuilder,FormGroup,FormControl,Validators,NgForm, MinLengthValidator} from '@angular/forms' 
 import { FormGroup, FormBuilder, Validators } from '@angular/forms'
 import { LocalStorageService } from 'ngx-webstorage';
-import { PartyMastersService } from '../party-masters.service';
+import { PartyMastersService } from '../services/party-masters.service';
 @Component({
   selector: 'app-party-masters',
   templateUrl: './party-masters.component.html',

@@ -19,10 +19,10 @@ import { AlertComponent } from './alert/alert.component';
 import { JwtInterceptor, ErrorInterceptor } from "./helpers";
 
 import { fakeBackendProvider } from './helpers';
-import { AuthService } from './auth.service';
-import { AlertService } from './alert.service';
+import { AuthService } from './services/auth.service';
+import { AlertService } from './services/alert.service';
 import { Guard1Guard } from './guard1.guard';
-import { UserService } from './user.service';
+import { UserService } from './services/user.service';
 import { LogoutComponent } from './logout/logout.component';
 
 @NgModule({

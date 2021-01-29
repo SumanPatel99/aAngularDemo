@@ -3,8 +3,8 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { first } from 'rxjs/operators';
 
-import { AuthService } from '../auth.service';
-import { AlertService } from '../alert.service'
+import { AuthService } from '../services/auth.service';
+import { AlertService } from '../services/alert.service'
 import { from } from 'rxjs';
 @Component({
   selector: 'app-login',
@@ -30,8 +30,8 @@ export class LoginComponent implements OnInit {
   });
 
   // reset login status
-  this.authenticationService.login
-  console.log(this.authenticationService.login," auth login")
+  this.authenticationService.logout();
+  console.log(this.authenticationService.logout()," reset login status")
 
   // get return url from route parameters or default to '/'
   this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/';

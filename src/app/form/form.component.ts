@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { FormService } from '../form.service';
+import { FormService } from '../services/form.service';
 
 @Component({
   selector: 'app-form',

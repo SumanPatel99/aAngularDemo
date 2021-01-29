@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
-import { FormService } from '../form.service';
+import { FormService } from '../services/form.service';
 
 @Component({
   selector: 'app-profile',

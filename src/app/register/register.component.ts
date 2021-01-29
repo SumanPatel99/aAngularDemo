@@ -3,8 +3,8 @@ import { Router } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { first } from 'rxjs/operators';
 
-import { UserService } from '../user.service'
-import { AlertService } from '../alert.service'
+import { UserService } from '../services/user.service'
+import { AlertService } from '../services/alert.service'
 import { get } from 'jquery';
 
 @Component({
@@ -48,7 +48,7 @@ export class RegisterComponent implements OnInit {
         data => {
           this.alertService.success('Registration successful', true);
           this.router.navigate(['/login']);
-          console.log(data, "data")
+          console.log(this.alertService.success('Registration successful', true), "data")
         },
         error => {
           this.alertService.error(error);
