@@ -10,31 +10,13 @@ import { User } from '../user'
   styleUrls: ['./logout.component.css']
 })
 export class LogoutComponent implements OnInit {
-  currentUser: User;
-  users: User[] = [];
-  id
-  constructor(private AuthService: AuthService, private router: Router,
-    private userService: UserService) {
-    this.currentUser = JSON.parse(localStorage.getItem('currentUser'));
-  }
+  constructor(private AuthService: AuthService, private router: Router) { }
 
   ngOnInit() {
 
     this.AuthService.logout()
-    // this.loadAllUsers()
     this.router.navigate(['/login'])
   }
 
-  logout(id: number) {
-    this.userService.delete(id).pipe(first()).subscribe(() => {
-      this.loadAllUsers()
-    });
-  }
-
-  private loadAllUsers() {
-    this.userService.getAll().pipe(first()).subscribe(users => {
-      this.users = users;
-      console.log(this.users)
-    });
-  }
+  
 }

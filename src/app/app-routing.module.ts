@@ -10,6 +10,7 @@ import { LogoutComponent } from './logout/logout.component';
 import { PartyMastersComponent } from './party-masters/party-masters.component';
 import { ProfileComponent } from './profile/profile.component';
 import { RegisterComponent } from './register/register.component';
+import { UserDetailsComponent } from './user-details/user-details.component';
 
 const routes: Routes = [
   // {path:'', component:HeaderComponent, canActivate: [Guard1Guard]},
@@ -17,8 +18,9 @@ const routes: Routes = [
   {path:'partymaster', component:PartyMastersComponent,  canActivate: [Guard1Guard]},
   {path:'image', component:ImageshowComponent, canActivate: [Guard1Guard]},
   { path:'profile/:id', component:ProfileComponent,  canActivate: [Guard1Guard]},
-  { path:'login', component:LoginComponent },
-  { path:'register', component:RegisterComponent },
+  { path:'userDetails', component:UserDetailsComponent, canActivate: [Guard1Guard] },
+  { path:'login', component:LoginComponent, canActivate: [Guard2Guard] },
+  { path:'register', component:RegisterComponent, canActivate: [Guard2Guard] },
   { path:'logout', component:LogoutComponent,  canActivate: [Guard1Guard] }
 ];
 

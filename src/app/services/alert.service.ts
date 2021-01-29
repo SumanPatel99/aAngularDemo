@@ -11,7 +11,7 @@ export class AlertService {
   private keepAfterNavigationChange = false;
 
   constructor(private router: Router) {
-    router.events.subscribe(event => {
+    this.router.events.subscribe(event => {
       if (event instanceof NavigationStart) {
         if (this.keepAfterNavigationChange) {
           // only keep for a single location change

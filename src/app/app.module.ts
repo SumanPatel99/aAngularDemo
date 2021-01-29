@@ -24,6 +24,7 @@ import { AlertService } from './services/alert.service';
 import { Guard1Guard } from './guard1.guard';
 import { UserService } from './services/user.service';
 import { LogoutComponent } from './logout/logout.component';
+import { UserDetailsComponent } from './user-details/user-details.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +37,8 @@ import { LogoutComponent } from './logout/logout.component';
     LoginComponent,
     RegisterComponent,
     AlertComponent,
-    LogoutComponent
+    LogoutComponent,
+    UserDetailsComponent
   ],
   imports: [
     BrowserModule,
